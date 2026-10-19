@@ -37,4 +37,9 @@ public class KameraMirrorLess extends Kamera {
                 isTersedia() ? "Tersedia" : "Disewa"
         );
     }
+    
+    @Override
+    public void lakukanPengecekan() {
+        System.out.println("Pengecekan kameraMirrorLess: sensor dan baterai diperiksa.");
+    }
 }

@@ -38,4 +38,9 @@ public class KameraDSLR extends Kamera {
                 isTersedia() ? "Tersedia" : "Disewa"
         );
     }
+    
+    @Override
+    public void lakukanPengecekan() {
+        System.out.println("Pengecekan kamera DSLR: lensa dan sensor diperiksa.");
+    }
 }

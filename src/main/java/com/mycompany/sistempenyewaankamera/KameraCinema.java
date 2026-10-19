@@ -1,6 +1,7 @@
 package com.mycompany.sistempenyewaankamera;
 
-public class KameraCinema extends Kamera {
+public class KameraCinema extends Kamera 
+    implements BisaMerekamVideo, PerluPerawatan {
 
     private String resolusiVideo;
 
@@ -34,4 +35,17 @@ public class KameraCinema extends Kamera {
                 isTersedia() ? "Tersedia" : "Disewa"
         );
     }
+    @Override
+    public void lakukanPengecekan() {
+        System.out.println("Pengecekan Cinema Camera: sensor dan kualitas video diperiksa.");
+    }
+    @Override
+    public void rekamVideo() {
+        System.out.println("Cinema Camera sedang merekam video 4K.");
+}
+
+    @Override
+    public void lakukanPerawatan() {
+        System.out.println("Cinema Camera sedang menjalani perawatan sensor dan lensa.");
+}
 }

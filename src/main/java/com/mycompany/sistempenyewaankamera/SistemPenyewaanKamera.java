@@ -27,6 +27,7 @@ public class SistemPenyewaanKamera {
             System.out.println("4. Hitung Biaya Penyewaan");
             System.out.println("5. Ubah Status Kamera");
             System.out.println("6. Keluar");
+            System.out.println("7. Pengecekan Kamera");
             System.out.println("==============================================");
             System.out.print("Pilih menu: ");
 
@@ -59,6 +60,18 @@ public class SistemPenyewaanKamera {
                     System.out.println();
                     System.out.println("Terima kasih telah menggunakan");
                     System.out.println("Sistem Penyewaan Kamera.");
+                    break;
+                    
+                case 7:
+                    System.out.print("Masukkan kode kamera: ");
+                    String kode = input.nextLine();
+
+                    for (int i = 0; i < jumlahKamera; i++) {
+                        if (daftarKamera[i].getKode().equalsIgnoreCase(kode)) {
+                        prosesKamera(daftarKamera[i]);
+                    break;
+                        }
+                    }
                     break;
 
                 default:
@@ -527,13 +540,20 @@ public class SistemPenyewaanKamera {
         );
     }
     static void prosesKamera(Kamera kamera) {
-        System.out.println();
-        System.out.println("===== PROSES KAMERA =====");
 
-        System.out.println("Kode  : " + kamera.getKode());
-        System.out.println("Jenis : " + kamera.getJenis());
+        System.out.println("\n=== PROSES KAMERA ===");
 
-        kamera.tampilkanInfo();
+        kamera.lakukanPengecekan();
+
+        if (kamera instanceof BisaMerekamVideo) {
+            BisaMerekamVideo video = (BisaMerekamVideo) kamera;
+            video.rekamVideo();
+        }
+
+        if (kamera instanceof PerluPerawatan) {
+            PerluPerawatan perawatan = (PerluPerawatan) kamera;
+            perawatan.lakukanPerawatan();
+        }
     }
    
     static void simulasiKamera() {

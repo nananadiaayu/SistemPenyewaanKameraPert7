@@ -35,4 +35,9 @@ public class KameraAction extends Kamera {
                 isTersedia() ? "Tersedia" : "Disewa"
         );
     }
+    
+    @Override
+    public void lakukanPengecekan() {
+        System.out.println("Pengecekan Action Camera: casing dan ketahanan air diperiksa.");
+    }
 }
